@@ -10,6 +10,7 @@ class CategoriesController extends Controller
 {
 
     private $repository;
+
     /**
     * Injecting CategoryRepository to constructor
     * 
@@ -34,15 +35,6 @@ class CategoriesController extends Controller
         return response()->json($this->repository->all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -52,7 +44,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->repository->create($request->all());
+        return view('home.index');
     }
 
     /**

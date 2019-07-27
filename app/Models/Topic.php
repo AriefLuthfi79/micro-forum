@@ -33,7 +33,7 @@ class Topic extends Model
 		return $this->belongsTo(\App\Models\Category::class);
 	}
 
-	    /**
+    /**
     * The User has many ratings
     * 
     * @return Rating

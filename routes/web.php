@@ -19,4 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'Admin\DashboardController@index')->name('admin.dashboard');
+
+/* CategoryController Route */
 Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
+
+/* TopicController Route */
+Route::post('/topics', 'TopicsController@store')->name('topic.store');
+Route::get('/topic/{topic}', 'TopicsController@show')->name('topic.show');

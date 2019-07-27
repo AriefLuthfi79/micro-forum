@@ -175,4 +175,14 @@ abstract class BaseRepository
 		}
 		return $model;
 	}
+
+	/**
+	* Get the model's name
+	*
+	* @return string
+	*/
+	public function getModel()
+	{
+		return $this->model();
+	}
 }

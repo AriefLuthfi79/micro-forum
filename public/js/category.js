@@ -11,16 +11,16 @@ var Categories = {
 	},
 
 	populateDataToOptionSelect: function() {
+		var toAppend = [];
 		$.ajax({
 			type: 'get',
 			url: '/categories',
 			success: function(response) {
-				var toAppend = '';
 				var optSelect = $(document).find('#categories');
-				$.each(response, function(i, o) {
-					toAppend += '<option>'+o.name+'<option>';
+				$.each(response, function(key, value) {
+					toAppend.push('<option value="'+value.id+'">'+value.name+'</option>');
 				})
-				optSelect.append(toAppend);
+				optSelect.html(toAppend.join(''));
 			}
 		});
 	}

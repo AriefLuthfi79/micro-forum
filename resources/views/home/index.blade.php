@@ -36,7 +36,7 @@
                 <div class="card-body">
                     @foreach ($data['topics'] as $topics)
                         <ul class="list-group">
-                            <a href="#" class="list-group-item" style="text-decoration: none;">
+                            <a href="{{ route('topic.show', $topics) }}" class="list-group-item" style="text-decoration: none;">
                                 <div class="col-md-8 col-xs-9">
                                     {{ $topics->title }}
                                 </div>
@@ -53,12 +53,16 @@
                             </a>
                         </ul>
                     @endforeach
+                    @foreach($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+
                 </div>
             </div>
         </div>
 
         <div class="col-md-12">
-            @include('categories.modal')
+            @include('topics.modal')
         </div>
     </div>
 </div>
@@ -68,8 +72,7 @@
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     <script>
-        $('textarea').ckeditor();
-        // $('.textarea').ckeditor(); // if class is prefered.
+        $('#summary-ckeditor').ckeditor();
     </script>
     <script src="{{ asset('js/category.js') }}" type="text/javascript"></script>
 @endsection
